@@ -30,9 +30,9 @@ MongoClient.connect('mongodb://nodemongo:node2018@ds121189.mlab.com:21189/nodemo
 
      id=req.body.id;
      console.log("before");
-
+//  deleting by Using Id
      
-	db.collection('articlemodels').findOneAndDelete({title:"ArticleReader68686868"}).then((result)=>{
+	db.collection('articlemodels').findOneAndDelete(new ObjectID(id)).then((result)=>{
 		console.log("After====>"+JSON.stringify(result));
 		
 	},(err)=>{

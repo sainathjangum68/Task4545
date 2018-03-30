@@ -80,7 +80,7 @@ app.use(bodyParser.json());
 
      id=req.body.id;
 
-
+// Updating using id
      db.collection('articlemodels').findOneAndUpdate({
     _id:new ObjectID(id)
   },{

@@ -8,7 +8,7 @@ var {articlemodels} = require('./models/articleModel');
 var app = express();
 
 app.use(bodyParser.json());
-
+// creates a new document in server(mLab)
 app.post('/sai', (req, res) => {
   var art = new articlemodels({
     title: req.body.title,

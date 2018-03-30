@@ -55,15 +55,6 @@ console.log(id);
 });
    
 
-// 	db.collection('articlemodels').find({tags:["ssc","12","degree"]},{title:"EducationalArticleByPostman"}).toArray().then((docs)=>{
-// 		console.log(JSON.stringify(docs,undefined,2));
-		
-// 	},(err)=>{
-// 		console.log("===>"+err);
-// 	});
-	
-// });
-
 
 app.listen(3001, () => {
   console.log('Started on port 3000');
