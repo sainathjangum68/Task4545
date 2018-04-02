@@ -2,6 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 
 var {mongoose} = require('./db/mongoose');
+
+var {ObjectID}=require('mongodb');
 var {articlemodels} = require('./models/articleModel');
 //var {customModel} = require('./models/customModel');
 
@@ -28,6 +30,34 @@ console.log(req.body);
   });
 });
  
+// app.get('/sai', (req, res) => {
+//  articlemodels.find().then((a) => {
+//     res.send({a});
+//   }, (e) => {
+//     res.status(400).send(e);
+//   });
+// });
+
+
+app.get('/sai/:id', (req, res) => {
+  var id = req.params.id;
+
+  if (!ObjectID.isValid(id)) {
+    return res.status(404).send();
+  }
+
+  articlemodels.findById(id).then((doc) => {
+    if (!doc) {
+      return res.status(404).send();
+    }
+
+    res.send({doc});
+  }).catch((e) => {
+    res.status(400).send();
+  });
+});
+
+
 // app.get('/sai',(req,res)=>{
 // 	articleModel1.find().then(()=>{
 // 		res.send({sai});
